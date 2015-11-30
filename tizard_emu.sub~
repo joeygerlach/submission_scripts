@@ -15,12 +15,12 @@
 #PBS -M Your-email-Address
 
 ### Queue name that job is submitted to
-#PBS -q tizard
+#PBS -q emu
 
 ### Request nodes NB THIS IS REQUIRED
-#PBS -l nodes=1:ppn=Y
-#PBS -l mem=Xgb,vmem=Xgb
-#PBS -l walltime=HH:MM:SS
+#PBS -l ncpus=X
+###PBS -l mem=Xgb,vmem=Xgb
+###PBS -l walltime=HH:MM:SS
 
 # This job's working directory
 echo Working directory is $PBS_O_WORKDIR
