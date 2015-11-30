@@ -1,0 +1,39 @@
+#!/bin/csh
+
+#PBS -V
+
+### Job name
+#PBS -N MyJobName
+
+### Join queuing system output and error files into a single output file
+#PBS -j oe
+
+### Send email to user when job ends or aborts
+#PBS -m ae
+
+### email address for user
+#PBS -M Your-email-Address
+
+### Queue name that job is submitted to
+#PBS -q emu
+
+### Request the number of cores in one node
+### users should run one-node jobs on EMU, most worker nodes on EMU are 8-core nodes but users should check before submitting jobs
+#PBS -l ncpus=X
+### walltime is optional in EMU
+#PBS -l walltime=HH:MM:SS
+
+# This job's working directory
+echo Working directory is $PBS_O_WORKDIR
+cd $PBS_O_WORKDIR
+echo Running on host `hostname`
+echo Time is `date`
+
+#load distro first
+module load distro/centos63
+
+#Load other module(s) if required
+module load application_module
+
+# Run the executable
+MyProgram+Arguments
