@@ -1,0 +1,38 @@
+#!/bin/csh
+
+#PBS -V
+
+### Job name
+#PBS -N Experiment1
+
+### Join queuing system output and error files into a single output file
+#PBS -j oe
+
+### Send email to user when job ends or aborts
+#PBS -m ae
+
+### email address for user
+#PBS -M joey.gerlach@ersa.edu.au
+
+### Queue name that job is submitted to
+#PBS -q emu
+
+### Request nodes NB THIS IS REQUIRED
+#PBS -l nodes=1:ppn=2
+#PBS -l mem=4gb
+#PBS -l walltime=04:00:00
+
+# This job's working directory
+echo Working directory is $PBS_O_WORKDIR
+cd $PBS_O_WORKDIR
+echo Running on host `hostname`
+echo Time is `date`
+
+#Load module(s) if required
+module load gnu/4.8.0
+module load stacks 
+
+# Run the executable
+process_radtags -P -p ~/data --renz_1 ecoRI --renz_2 mseI -c -q -s 20 -i gzfastq
+
+### Note: the command above works fine on the command-line on the emu-submit node
