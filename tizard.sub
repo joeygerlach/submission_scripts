@@ -15,11 +15,11 @@
 #PBS -M my.name@email.edu.au
 
 ### Queue name that job is submitted to
-#PBS -q tizard
+#PBS -q emu
 
-### Request nodes NB THIS IS REQUIRED
+### Request nodes NB  - always nodes=1 for emu.sub
 #PBS -l nodes=1:ppn=1
-#PBS -l mem=4gb,vmem=1gb
+### PBS -l mem=4gb,vmem=1gb - blanked for emu.sub
 #PBS -l walltime=01:00:00
 
 # This job's working directory
