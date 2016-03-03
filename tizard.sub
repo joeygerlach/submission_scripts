@@ -15,11 +15,11 @@
 #PBS -M my.name@email.edu.au
 
 ### Queue name that job is submitted to
-#PBS -q emu
+#PBS -q tizard
 
-### Request the number of cores in one node
-### users should run one-node jobs on EMU, most worker nodes on EMU are 8-core nodes but users should check before submitting jobs
+### Request nodes NB THIS IS REQUIRED
 #PBS -l nodes=1:ppn=1
+#PBS -l mem=4gb,vmem=1gb
 #PBS -l walltime=01:00:00
 
 # This job's working directory
